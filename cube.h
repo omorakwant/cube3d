@@ -6,7 +6,7 @@
 /*   By: odahriz <odahriz@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 11:33:42 by odahriz           #+#    #+#             */
-/*   Updated: 2025/08/28 09:51:15 by odahriz          ###   ########.fr       */
+/*   Updated: 2025/09/06 13:21:49 by odahriz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@
 # include <mlx.h>
 
 # define ESC_KEY 65307
+# define W_KEY 119
+# define A_KEY 97
+# define S_KEY 115
+# define D_KEY 100
 # define MINIMAP_WIDTH 200
 # define MINIMAP_HEIGHT 200
 
@@ -32,6 +36,8 @@ typedef struct s_data
 	int		map_width;
 	int		map_height;
 	int		tile_size;
+	int		player_x;
+	int		player_y;
 }			t_data;
 
 void	render_minimap(t_data *data);
@@ -40,5 +46,8 @@ int		get_map_width(char **map);
 int		get_map_height(char **map);
 int		calculate_tile_size(t_data *data);
 int		handle_key(int keycode, void *param);
+int		handle_close(void *param);
+void	find_player_position(t_data *data);
+int		is_valid_move(t_data *data, int new_x, int new_y);
 
 #endif

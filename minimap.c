@@ -6,7 +6,7 @@
 /*   By: odahriz <odahriz@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 09:29:49 by odahriz           #+#    #+#             */
-/*   Updated: 2025/08/28 09:50:05 by odahriz          ###   ########.fr       */
+/*   Updated: 2025/09/07 01:08:49 by odahriz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void	render_minimap(t_data *data)
 {
 	int	row;
 	int	col;
+	int	x;
+	int	y;
 
 	row = 0;
 	while (data->map[row])
@@ -41,15 +43,14 @@ void	render_minimap(t_data *data)
 		col = 0;
 		while (data->map[row][col])
 		{
+			x = col * data->tile_size;
+			y = row * data->tile_size;
 			if (data->map[row][col] == '1')
-				draw_square(data, col * data->tile_size,
-					row * data->tile_size, 0xFFFFFF);
+				draw_square(data, x, y, 0xFFFFFF);
 			else if (data->map[row][col] == '0')
-				draw_square(data, col * data->tile_size,
-					row * data->tile_size, 0x000000);
+				draw_square(data, x, y, 0x000000);
 			else if (data->map[row][col] == 'P')
-				draw_square(data, col * data->tile_size,
-					row * data->tile_size, 0xFF0000);
+				draw_square(data, x, y, 0xFF0000);
 			col++;
 		}
 		row++;

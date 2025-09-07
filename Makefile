@@ -2,7 +2,7 @@ CC = cc
 FLAGS = -Werror -Wextra -Wall -lmlx -lXext -lX11 -lm -lz
 NAME = cube3d
 
-SRCS = main.c  minimap.c utils.c
+SRCS = main.c  minimap.c utils.c events.c map_init.c
 OBJS = $(SRCS:.c=.o)
 INCLUDES = -I./includes
 
